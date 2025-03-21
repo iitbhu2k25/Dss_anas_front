@@ -4,6 +4,8 @@ import './globals.css';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import GridSection from './components/GridSection'; 
+
 interface RootLayoutProps {
   children: ReactNode;
 }
@@ -11,12 +13,12 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
-  
-      <body>
-        <Header/>
-        <Navbar/>
-        {children}</body>
-        <Footer/>
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        <Navbar />
+        <GridSection />
+        <Footer />
+      </body>
     </html>
   );
 }
