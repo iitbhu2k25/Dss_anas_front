@@ -68,7 +68,7 @@ const Navbar = () => {
 
             {/* Basic Modules */}
             <li className="relative group">
-              <button 
+              <button
                 onClick={() => toggleDropdown('basicModules')}
                 className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
               >
@@ -76,22 +76,22 @@ const Navbar = () => {
               </button>
               <ul className={`${openDropdowns.basicModules ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
                 <li>
-                  <Link href="/population/time-series" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                  <Link href="/population/time-series" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
                     Population Estimation and Forecasting
                   </Link>
                 </li>
                 <li>
-                  <Link href="/waterdemand" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                  <Link href="/waterdemand" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
                     Water Demand
                   </Link>
                 </li>
                 <li>
-                  <Link href="/watersupply" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                  <Link href="/watersupply" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
                     Water Supply
                   </Link>
                 </li>
                 <li>
-                  <Link href="/sewage" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                  <Link href="/sewage" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
                     Sewage Generation
                   </Link>
                 </li>
@@ -100,7 +100,7 @@ const Navbar = () => {
 
             {/* GWM */}
             <li className="relative group">
-              <button 
+              <button
                 onClick={() => toggleDropdown('gwm')}
                 className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
               >
@@ -109,108 +109,108 @@ const Navbar = () => {
                   Ground Water Management
                 </span>
               </button>
-              <ul className={`${openDropdowns.gwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
+              <ul className={`${openDropdowns.gwm ? 'block' : 'hidden'} lg:absolute lg:invisible lg:group-hover:visible lg:opacity-0 lg:group-hover:opacity-100 left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[240px] p-3 z-50 transition-all duration-200`}>
                 {/* Groundwater Potential Assessment */}
-                <li className="relative">
-                  <button 
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
                     onClick={(e) => toggleSubmenu(e, 'gwPotential')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
                   >
                     Groundwater Potential Assessment
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.gwPotential ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.gwPotential ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Pumping Location Identification
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         GW Potential Zone
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
+
                 {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
                     onClick={(e) => toggleSubmenu(e, 'gwResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
                   >
                     Resource Estimation
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.gwResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.gwResource ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Regional Scale Quantification
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Water Quality Assessment
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Identification Of Vulnerable zones
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
+
                 {/* Managed Aquifer Recharge */}
-                <li className="relative">
-                  <button 
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
                     onClick={(e) => toggleSubmenu(e, 'gwAquifer')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
                   >
                     Managed Aquifer Recharge
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.gwAquifer ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.gwAquifer ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Local Scale Water Estimation
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Climate Change
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Site suitability For MAR
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Optimized Solution
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
+
                 {/* River Aquifer Interaction */}
-                <li className="relative">
-                  <button 
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
                     onClick={(e) => toggleSubmenu(e, 'gwRiver')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
                   >
                     River Aquifer Interaction
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.gwRiver ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.gwRiver ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Baseflow Estimation
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Climate Change and Mitigation
                       </Link>
                     </li>
@@ -221,7 +221,7 @@ const Navbar = () => {
 
             {/* RWM */}
             <li className="relative group">
-              <button 
+              <button
                 onClick={() => toggleDropdown('rwm')}
                 className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
               >
@@ -230,474 +230,313 @@ const Navbar = () => {
                   River Water Management
                 </span>
               </button>
-              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
-                {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
+              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:absolute lg:invisible lg:group-hover:visible lg:opacity-0 lg:group-hover:opacity-100 left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[240px] p-3 z-50 transition-all duration-200`}>
+                {/* River Estimation */}
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
+                    onClick={(e) => toggleSubmenu(e, 'rwEstimation')}
                   >
-                    Resource Estimation
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    River Estimation
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.rwEstimation ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Water Availability
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Water Flow and Storage Estimation
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Water Quality Assessment
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Vulnerability Assessment
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Vulnerabilty Assessment
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Contamination Risk Assessment
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
+
                 {/* Flood Forecasting and Management */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmFlood')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
+                    onClick={(e) => toggleSubmenu(e, 'rwFlood')}
                   >
                     Flood Forecasting and Management
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmFlood ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.rwFlood ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Flood simulation
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Flood Simulation
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         River Routing
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contaminant Transport Modelling
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Contamination Transport Modelling
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
-                {/* Additional RWM items would be added here */}
+
+                {/* Water Bodies Management */}
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
+                    onClick={(e) => toggleSubmenu(e, 'rwWaterBodies')}
+                  >
+                    Water Bodies Management
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.rwWaterBodies ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Storage and Forecasting
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Climate Change
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Reservoir Operation
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Water Quality and Monitoring
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
+
+                {/* Waste Water Treatment */}
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
+                    onClick={(e) => toggleSubmenu(e, 'rwWasteWater')}
+                  >
+                    Waste Water Treatment
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.rwWasteWater ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Water Pollution and Inventory
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Treatment Technology
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Site Suitability
+                      </Link>
+                    </li>
+                  </ul>
+                </li>
               </ul>
             </li>
 
+            {/* ende of RWM  */}
+            {/* WRM */}
             <li className="relative group">
-              <button 
+              <button
                 onClick={() => toggleDropdown('wrm')}
                 className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
               >
                 WRM <ChevronDown className="inline ml-1 w-4 h-4" />
                 <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
-                  Water Resource management
+                  Water Resource Management
                 </span>
               </button>
-              <ul className={`${openDropdowns.wrm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
-                {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'wrmResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
+              <ul className={`${openDropdowns.wrm ? 'block' : 'hidden'} lg:absolute lg:invisible lg:group-hover:visible lg:opacity-0 lg:group-hover:opacity-100 left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[240px] p-3 z-50 transition-all duration-200`}>
+                {/* Demand and Forecasting */}
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
+                    onClick={(e) => toggleSubmenu(e, 'wrmDemand')}
                   >
-                    Demand and Forcasting
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.wrmResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    Demand and Forecasting
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.wrmDemand ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Current Consumption Pattern
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
                         Future Demand Projection
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
-                {/* Flood Forecasting and Management */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'wrmresource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Flood Forecasting and Management
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmFlood ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Flood simulation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        River Routing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contaminant Transport Modelling
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Additional RWM items would be added here */}
-              </ul>
-            </li>
 
-            <li className="relative group">
-              <button 
-                onClick={() => toggleDropdown('rwm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
-                RWM <ChevronDown className="inline ml-1 w-4 h-4" />
-                <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
-                  River Water Management
-                </span>
-              </button>
-              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
-                {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
+                {/* Resource Allocation */}
+                <li className="relative group/submenu">
+                  <div
+                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center cursor-pointer"
+                    onClick={(e) => toggleSubmenu(e, 'wrmAllocation')}
                   >
-                    Resource Estimation
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
+                    Resource Allocation
+                    <ChevronRight className="w-4 h-4 lg:group-hover/submenu:rotate-90 transition-transform duration-200" />
+                  </div>
+                  <ul className={`${openDropdowns.wrmAllocation ? 'block' : 'hidden'} lg:hidden lg:group-hover/submenu:block lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[220px] lg:p-3 lg:ml-1 lg:z-50 ml-4`}>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Availability
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Source Sustainability
                       </Link>
                     </li>
                     <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Flow and Storage Estimation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Quality Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Vulnerability Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contamination Risk Assessment
+                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold hover:bg-blue-50 hover:bg-opacity-10 rounded-md transition duration-200">
+                        Source Demarcation
                       </Link>
                     </li>
                   </ul>
                 </li>
-                
-                {/* Flood Forecasting and Management */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmFlood')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Flood Forecasting and Management
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmFlood ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Flood simulation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        River Routing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contaminant Transport Modelling
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Additional RWM items would be added here */}
-              </ul>
-            </li>
-            <li className="relative group">
-              <button 
-                onClick={() => toggleDropdown('rwm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
-                RWM <ChevronDown className="inline ml-1 w-4 h-4" />
-                <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
-                  River Water Management
-                </span>
-              </button>
-              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
-                {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Resource Estimation
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Availability
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Flow and Storage Estimation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Quality Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Vulnerability Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contamination Risk Assessment
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Flood Forecasting and Management */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmFlood')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Flood Forecasting and Management
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmFlood ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Flood simulation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        River Routing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contaminant Transport Modelling
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Additional RWM items would be added here */}
-              </ul>
-            </li>
-            <li className="relative group">
-              <button 
-                onClick={() => toggleDropdown('rwm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
-                RWM <ChevronDown className="inline ml-1 w-4 h-4" />
-                <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
-                  River Water Management
-                </span>
-              </button>
-              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
-                {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Resource Estimation
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Availability
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Flow and Storage Estimation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Quality Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Vulnerability Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contamination Risk Assessment
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Flood Forecasting and Management */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmFlood')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Flood Forecasting and Management
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmFlood ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Flood simulation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        River Routing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contaminant Transport Modelling
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Additional RWM items would be added here */}
-              </ul>
-            </li>
-            <li className="relative group">
-              <button 
-                onClick={() => toggleDropdown('rwm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
-                RWM <ChevronDown className="inline ml-1 w-4 h-4" />
-                <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
-                  River Water Management
-                </span>
-              </button>
-              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
-                {/* Resource Estimation */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmResource')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Resource Estimation
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmResource ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Availability
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Flow and Storage Estimation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Water Quality Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Vulnerability Assessment
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contamination Risk Assessment
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Flood Forecasting and Management */}
-                <li className="relative">
-                  <button 
-                    onClick={(e) => toggleSubmenu(e, 'rwmFlood')}
-                    className="w-full text-left px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200 flex justify-between items-center"
-                  >
-                    Flood Forecasting and Management
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                  <ul className={`${openDropdowns.rwmFlood ? 'block' : 'hidden'} lg:hidden lg:absolute lg:left-full lg:top-0 lg:bg-white lg:bg-opacity-95 lg:border lg:border-gray-200 lg:border-opacity-10 lg:rounded-lg lg:shadow-lg lg:min-w-[200px] lg:p-3 lg:ml-[-1px] lg:mt-[-8px] lg:z-50 ml-4`}>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Flood simulation
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        River Routing
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#" className="block px-4 py-2 text-blue-600 font-semibold  hover:bg-opacity-10 rounded-md transition duration-200">
-                        Contaminant Transport Modelling
-                      </Link>
-                    </li>
-                  </ul>
-                </li>
-                
-                {/* Additional RWM items would be added here */}
               </ul>
             </li>
 
             {/* WRM, System Dynamics, Activities, etc. would be added in a similar pattern */}
+
+
+            {/* Activities */}
+            <li className="relative group">
+              <button
+                onClick={() => toggleDropdown('activities')}
+                className={`${openDropdowns.activities ? 'block' : 'hidden'} text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none`}>
+                Activities <ChevronDown className="inline ml-1 w-4 h-4" />
+              </button>
+              <ul
+                className={`${openDropdowns.activities ? 'block' : 'hidden'
+                  } lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}
+              >
+                <li>
+                  <Link
+                    href="/#"
+                    className="block px-1 py-2 text-blue-600 font-bold hover:bg-opacity-10 rounded-md transition duration-200"
+                  >
+                    Training and Workshop
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/#"
+                    className="block px-1 py-2 text-blue-600 font-bold hover:bg-opacity-10 rounded-md transition duration-200"
+                  >
+                    Gallery
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+
+
+            {/* Report and Publication   */}
+            <li className="relative group">
+              <button
+                onClick={() => toggleDropdown('reportandpublication')}
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
+              >
+                Report and Publication  <ChevronDown className="inline ml-1 w-4 h-4" />
+              </button>
+              <ul className={`${openDropdowns.reportandpublication ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
+                <li>
+                  <Link href="/#" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Newsletter
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Broucher
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+
+
+            {/* visualization   */}
+            <li className="relative group">
+              <button
+                onClick={() => toggleDropdown('visualization')}
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
+              >
+                visualization  <ChevronDown className="inline ml-1 w-4 h-4" />
+              </button>
+              <ul className={`${openDropdowns.visualization ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
+                <li>
+                  <Link href="/mapplot" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Vector
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/visuall" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Raster
+                  </Link>
+                </li>
+              </ul>
+            </li>
+
+
             {/* Contact */}
-            
+
             <li className="relative group">
               <Link href="/contact" className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 Contact
               </Link>
             </li>
+            {/* Account   */}
+            <li className="relative group">
+              <button
+                onClick={() => toggleDropdown('account')}
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
+              >
+                Account  <ChevronDown className="inline ml-1 w-4 h-4" />
+              </button>
+              <ul className={`${openDropdowns.account ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
+                <li>
+                  <Link href="/mapplot" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Sign up
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/visuall" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Log in
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/visuall" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                    Log out
+                  </Link>
+                </li>
+              </ul>
+            </li>
 
-           
           </ul>
         </div>
       </div>
