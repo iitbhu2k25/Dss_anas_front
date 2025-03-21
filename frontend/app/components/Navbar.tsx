@@ -17,13 +17,31 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Toggle dropdown visibility
-  const toggleDropdown = (key) => {
-    setOpenDropdowns(prev => ({
-      ...prev,
-      [key]: !prev[key]
-    }));
-  };
+  // // Toggle dropdown visibility
+  // const toggleDropdown = (key) => {
+  //   setOpenDropdowns(prev => ({
+  //     ...prev,
+  //     [key]: !prev[key]
+  //   }));
+  // };
+
+
+// Toggle dropdown visibility (mobile fix)
+const toggleDropdown = (key) => {
+  setOpenDropdowns((prev) => {
+    // Create a new object with all dropdowns closed
+    const updatedDropdowns = Object.keys(prev).reduce((acc, curr) => {
+      acc[curr] = false;
+      return acc;
+    }, {});
+
+    // Toggle the current dropdown
+    updatedDropdowns[key] = !prev[key];
+    return updatedDropdowns;
+  });
+};
+
+
 
   // Toggle submenu visibility
   const toggleSubmenu = (e, key) => {
@@ -70,8 +88,7 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('basicModules')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 Basic Modules <ChevronDown className="inline ml-1 w-4 h-4" />
               </button>
               <ul className={`${openDropdowns.basicModules ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
@@ -102,14 +119,13 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('gwm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 GWM <ChevronDown className="inline ml-1 w-4 h-4" />
                 <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
                   Ground Water Management
                 </span>
               </button>
-              <ul className={`${openDropdowns.gwm ? 'block' : 'hidden'} lg:absolute lg:invisible lg:group-hover:visible lg:opacity-0 lg:group-hover:opacity-100 left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[240px] p-3 z-50 transition-all duration-200`}>
+              <ul className={`${openDropdowns.gwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
                 {/* Groundwater Potential Assessment */}
                 <li className="relative group/submenu">
                   <div
@@ -223,14 +239,13 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('rwm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 RWM <ChevronDown className="inline ml-1 w-4 h-4" />
                 <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
                   River Water Management
                 </span>
               </button>
-              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:absolute lg:invisible lg:group-hover:visible lg:opacity-0 lg:group-hover:opacity-100 left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[240px] p-3 z-50 transition-all duration-200`}>
+              <ul className={`${openDropdowns.rwm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
                 {/* River Estimation */}
                 <li className="relative group/submenu">
                   <div
@@ -365,14 +380,14 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('wrm')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 WRM <ChevronDown className="inline ml-1 w-4 h-4" />
                 <span className="absolute top-[-35px] left-1/2 transform -translate-x-1/2 bg-orange-500 bg-opacity-90 text-white px-3 py-1 rounded-md text-sm whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 after:content-[''] after:absolute after:top-full after:left-1/2 after:ml-[-5px] after:border-[5px] after:border-solid after:border-t-blue-900 after:border-r-transparent after:border-b-transparent after:border-l-transparent">
                   Water Resource Management
                 </span>
               </button>
-              <ul className={`${openDropdowns.wrm ? 'block' : 'hidden'} lg:absolute lg:invisible lg:group-hover:visible lg:opacity-0 lg:group-hover:opacity-100 left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[240px] p-3 z-50 transition-all duration-200`}>
+              <ul className={`${openDropdowns.wrm ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}
+              >
                 {/* Demand and Forecasting */}
                 <li className="relative group/submenu">
                   <div
@@ -428,7 +443,7 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('activities')}
-                className={`${openDropdowns.activities ? 'block' : 'hidden'} text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none`}>
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 Activities <ChevronDown className="inline ml-1 w-4 h-4" />
               </button>
               <ul
@@ -460,8 +475,7 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('reportandpublication')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 Report and Publication  <ChevronDown className="inline ml-1 w-4 h-4" />
               </button>
               <ul className={`${openDropdowns.reportandpublication ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
@@ -484,8 +498,7 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('visualization')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 visualization  <ChevronDown className="inline ml-1 w-4 h-4" />
               </button>
               <ul className={`${openDropdowns.visualization ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
@@ -514,8 +527,7 @@ const Navbar = () => {
             <li className="relative group">
               <button
                 onClick={() => toggleDropdown('account')}
-                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 focus:outline-none"
-              >
+                className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 Account  <ChevronDown className="inline ml-1 w-4 h-4" />
               </button>
               <ul className={`${openDropdowns.account ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[200px] p-3 z-50`}>
