@@ -72,10 +72,10 @@ const toggleDropdown = (key) => {
           <ul className="flex flex-col lg:flex-row lg:justify-center space-y-2 lg:space-y-0">
             {/* Home */}
             <li className="relative group">
-              <Link href="/" className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
+              <Link href="/dss/home" className="text-white font-semibold text-lg px-5 py-2 inline-block relative hover:translate-y-[-2px] transition-all duration-300 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-600 after:transition-all after:duration-300">
                 Home
               </Link>
-            </li>
+            </li> 
 
             {/* About */}
             <li className="relative group">
