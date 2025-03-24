@@ -6,7 +6,7 @@ import GridSection from "./component/home_grid/GridSection";
 export default function Home() {
   return (
     <div>
-      <GridSection/>
+        <GridSection/>
         <GalleryCarousel/>
     </div>
 );
