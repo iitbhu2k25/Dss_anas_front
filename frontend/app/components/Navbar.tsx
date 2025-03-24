@@ -17,15 +17,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // // Toggle dropdown visibility
-  // const toggleDropdown = (key) => {
-  //   setOpenDropdowns(prev => ({
-  //     ...prev,
-  //     [key]: !prev[key]
-  //   }));
-  // };
-
-
+  
 // Toggle dropdown visibility (mobile fix)
 const toggleDropdown = (key) => {
   setOpenDropdowns((prev) => {
