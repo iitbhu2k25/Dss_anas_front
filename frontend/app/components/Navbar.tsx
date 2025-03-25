@@ -563,7 +563,7 @@ const toggleDropdown = (key) => {
               </button>
               <ul className={`${openDropdowns.visualization ? 'block' : 'hidden'} lg:hidden lg:group-hover:block absolute left-0 top-full bg-white bg-opacity-95 border border-gray-200 border-opacity-10 rounded-lg shadow-lg min-w-[150px] p-3 z-50`}>
                 <li>
-                  <Link href="/mapplot" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
+                  <Link href="/dss/visualization/vector" className="block px-1 py-2 text-blue-600 font-bold  hover:bg-opacity-10 rounded-md transition duration-200">
                     Vector
                   </Link>
                 </li>
