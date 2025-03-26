@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 
@@ -470,10 +471,6 @@ export default function Map({
             <i className="fas fa-expand"></i>
           </button>
         </div>
-        
-       
-        
-        
         
         {/* Loader */}
         {loading && (
