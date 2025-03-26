@@ -73,18 +73,6 @@ export default function StaticStatusBar() {
           </div>
         </div>
       </div>
-
-      {/* Empty main content area */}
-      <div className="flex-1 p-8 flex items-center justify-center bg-gray-50">
-        <div className="text-center max-w-md">
-          <h3 className="text-lg font-medium text-gray-700 mb-2">
-            Population Forecasting
-          </h3>
-          <p className="text-gray-500 text-sm">
-            This panel will be implemented separately.
-          </p>
-        </div>
-      </div>
     </div>
   )
 }

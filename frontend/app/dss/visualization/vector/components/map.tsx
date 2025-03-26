@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-draw/dist/leaflet.draw.css';
 
@@ -15,6 +16,7 @@ export default function Map({
   showNotification
 }) {
   const mapRef = useRef(null);
+  const mapContainerRef = useRef(null);
   const [map, setMap] = useState(null);
   const [baseLayers, setBaseLayers] = useState({});
   const [coordinates, setCoordinates] = useState({ lat: 0, lng: 0 });
@@ -88,8 +90,6 @@ export default function Map({
           position: 'bottomleft',
         }).addTo(newMap);
         
-        
-
         // Drawing tools
         const drawnItems = new L.FeatureGroup();
         newMap.addLayer(drawnItems);
@@ -130,6 +130,8 @@ export default function Map({
             featureGroup: drawnItems,
           },
         });
+        
+        newMap.addControl(drawControl);
         
         // Update coordinates on mouse move
         newMap.on('mousemove', (e) => {
@@ -200,7 +202,6 @@ export default function Map({
         setMap(newMap);
         setBaseLayers(newBaseLayers);
       }
-      
     }
     
     // Cleanup
@@ -229,15 +230,6 @@ export default function Map({
       }
     }
   }, [compassVisible, map]);
-
-  // // Handle grid visibility
-  // useEffect(() => {
-  //   if (map && gridVisible) {
-  //     addCoordinateGrid();
-  //   } else if (map && !gridVisible) {
-  //     removeCoordinateGrid();
-  //   }
-  // }, [gridVisible, map]);
   
   // Handle active feature highlighting
   useEffect(() => {
@@ -258,70 +250,6 @@ export default function Map({
     }
   }, [activeFeature, currentLayer]);
 
-  // Function to add coordinate grid
-  // const addCoordinateGrid = () => {
-  //   if (!map) return;
-    
-  //   const L = require('leaflet');
-    
-  //   // Clear previous grid lines
-  //   removeCoordinateGrid();
-    
-  //   // Latitude lines (every 5 degrees)
-  //   for (let lat = 5; lat <= 40; lat += 5) {
-  //     const line = L.polyline(
-  //       [
-  //         [lat, 65],
-  //         [lat, 100],
-  //       ],
-  //       {
-  //         color: '#3498db',
-  //         weight: 1,
-  //         opacity: 0.5,
-  //         dashArray: '5,5',
-  //       }
-  //     ).addTo(map);
-
-  //     const label = L.marker([lat, 65], {
-  //       icon: L.divIcon({
-  //         className: 'coordinate-label',
-  //         html: `${lat}°N`,
-  //         iconSize: [40, 20],
-  //         iconAnchor: [0, 10],
-  //       }),
-  //     }).addTo(map);
-
-  //     gridLinesRef.current.push(line, label);
-  //   }
-
-  //   // Longitude lines (every 5 degrees)
-  //   for (let lng = 65; lng <= 100; lng += 5) {
-  //     const line = L.polyline(
-  //       [
-  //         [5, lng],
-  //         [40, lng],
-  //       ],
-  //       {
-  //         color: '#3498db',
-  //         weight: 1,
-  //         opacity: 0.5,
-  //         dashArray: '5,5',
-  //       }
-  //     ).addTo(map);
-
-  //     const label = L.marker([5, lng], {
-  //       icon: L.divIcon({
-  //         className: 'coordinate-label',
-  //         html: `${lng}°E`,
-  //         iconSize: [40, 20],
-  //         iconAnchor: [20, -5],
-  //       }),
-  //     }).addTo(map);
-
-  //     gridLinesRef.current.push(line, label);
-  //   }
-  // };
-  
   // Function to remove coordinate grid
   const removeCoordinateGrid = () => {
     if (!map) return;
@@ -457,37 +385,68 @@ export default function Map({
   };
 
   return (
-    <div className="relative flex-1">
-      <div className="relative w-full h-full">
-        <div ref={mapRef} className="w-full h-[calc(100vh-56px)]" />
-        
-        {/* Compass */}
-        {compassVisible && (
-          <div id="compass" className="absolute top-20 left-5 z-10 w-[100px] h-[100px] bg-white/90 rounded-full shadow-md flex items-center justify-center pointer-events-none transition-all duration-300 backdrop-blur-sm">
-            <div className="w-[90px] h-[90px] relative animate-[compass-fade-in_1s_ease]">
-              <div className="absolute top-0 left-0 w-full h-full border-2 border-blue-500/20 rounded-full"></div>
-              <div className="absolute top-[5px] left-[5px] right-[5px] bottom-[5px] rounded-full bg-gradient-to-br from-gray-50 to-gray-200 shadow-inner"></div>
-              <div className="absolute top-1/2 left-1/2 w-1 h-[70%] -translate-x-1/2 -translate-y-1/2 origin-center">
-                <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-t from-transparent to-red-600 clip-path-triangle-n transform-origin-bottom"></div>
-                <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent to-gray-800 clip-path-triangle-s transform-origin-top"></div>
-              </div>
-              <div className="absolute top-1/2 left-1/2 w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-300 rounded-full shadow-sm z-[3]"></div>
-              <div className="absolute top-0 left-0 w-full h-full font-['Poppins',sans-serif] font-semibold text-xs pointer-events-none">
-                <div className="absolute top-[5px] left-1/2 -translate-x-1/2 text-red-600">N</div>
-                <div className="absolute top-[18%] right-[18%] text-gray-600 text-[10px]">NE</div>
-                <div className="absolute top-1/2 right-[5px] -translate-y-1/2 text-gray-600">E</div>
-                <div className="absolute bottom-[18%] right-[18%] text-gray-600 text-[10px]">SE</div>
-                <div className="absolute bottom-[5px] left-1/2 -translate-x-1/2 text-gray-600">S</div>
-                <div className="absolute bottom-[18%] left-[18%] text-gray-600 text-[10px]">SW</div>
-                <div className="absolute top-1/2 left-[5px] -translate-y-1/2 text-gray-600">W</div>
-                <div className="absolute top-[18%] left-[18%] text-gray-600 text-[10px]">NW</div>
-              </div>
+    <div className="relative flex-1 w-full h-full" ref={mapContainerRef}>
+      {/* Map Logo */}
+      <div className="absolute top-5 left-5 bg-white p-3 rounded-xl shadow-md z-20 flex items-center transition-all duration-300 hover:shadow-lg">
+        <div className="flex items-center">
+          <div className="relative w-10 h-10 mr-3">
+            {/* Map Pin Shape */}
+            <div className="absolute top-0 left-0 w-full h-full bg-blue-500 rounded-t-full rounded-bl-full rotate-45 transform origin-top-left"></div>
+            {/* Pin Center */}
+            <div className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-white rounded-full"></div>
+            {/* Map Grid Lines */}
+            <div className="absolute top-0 left-0 w-full h-full">
+              <div className="absolute top-0 left-1/2 h-full w-0.5 bg-blue-500/30"></div>
+              <div className="absolute top-1/2 left-0 w-full h-0.5 bg-blue-500/30"></div>
             </div>
           </div>
-        )}
+          <div className="flex flex-col">
+            <span className="font-bold text-gray-800 text-lg leading-tight">MapControl</span>
+            <span className="text-xs text-blue-500 font-semibold -mt-1">GIS Solution</span>
+          </div>
+        </div>
+      </div>
+
+      <div ref={mapRef} className="w-full h-[calc(100vh-56px)] rounded-lg shadow-inner" />
+      
+      {/* Coordinates Display */}
+      <div className="absolute bottom-5 left-5 bg-white/90 py-2 px-4 rounded-lg shadow-md z-10 backdrop-blur-sm text-sm">
+        <div className="flex items-center">
+          <span className="font-medium text-gray-700 mr-2">Lat:</span>
+          <span className="text-blue-700">{coordinates.lat}</span>
+        </div>
+        <div className="flex items-center">
+          <span className="font-medium text-gray-700 mr-2">Lng:</span>
+          <span className="text-blue-700">{coordinates.lng}</span>
+        </div>
+      </div>
         
-        {/* Download Button */}
-        <button 
+      {/* Compass */}
+      {compassVisible && (
+        <div id="compass" className="absolute top-20 left-5 z-10 w-[100px] h-[100px] bg-white/90 rounded-full shadow-md flex items-center justify-center pointer-events-none transition-all duration-300 backdrop-blur-sm">
+          <div className="w-[90px] h-[90px] relative animate-[compass-fade-in_1s_ease]">
+            <div className="absolute top-0 left-0 w-full h-full border-2 border-blue-500/20 rounded-full"></div>
+            <div className="absolute top-[5px] left-[5px] right-[5px] bottom-[5px] rounded-full bg-gradient-to-br from-gray-50 to-gray-200 shadow-inner"></div>
+            <div className="absolute top-1/2 left-1/2 w-1 h-[70%] -translate-x-1/2 -translate-y-1/2 origin-center">
+              <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-t from-transparent to-red-600 clip-path-triangle-n transform-origin-bottom"></div>
+              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent to-gray-800 clip-path-triangle-s transform-origin-top"></div>
+            </div>
+            <div className="absolute top-1/2 left-1/2 w-3 h-3 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-br from-white to-gray-300 rounded-full shadow-sm z-[3]"></div>
+            <div className="absolute top-0 left-0 w-full h-full font-['Poppins',sans-serif] font-semibold text-xs pointer-events-none">
+              <div className="absolute top-[5px] left-1/2 -translate-x-1/2 text-red-600">N</div>
+              <div className="absolute top-[18%] right-[18%] text-gray-600 text-[10px]">NE</div>
+              <div className="absolute top-1/2 right-[5px] -translate-y-1/2 text-gray-600">E</div>
+              <div className="absolute bottom-[18%] right-[18%] text-gray-600 text-[10px]">SE</div>
+              <div className="absolute bottom-[5px] left-1/2 -translate-x-1/2 text-gray-600">S</div>
+              <div className="absolute bottom-[18%] left-[18%] text-gray-600 text-[10px]">SW</div>
+              <div className="absolute top-1/2 left-[5px] -translate-y-1/2 text-gray-600">W</div>
+              <div className="absolute top-[18%] left-[18%] text-gray-600 text-[10px]">NW</div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Download Button */}
+      <button 
           onClick={handleDownload}
           className="absolute top-5 right-5 bg-white rounded-lg py-2.5 px-4 shadow-md z-10 flex items-center font-medium text-gray-700 cursor-pointer transition-all duration-300 hover:bg-blue-500 hover:text-white hover:-translate-y-0.5 hover:shadow-lg">
           <i className="fas fa-download mr-2 text-blue-500 hover:text-white transition-colors"></i> Download Shapefile
@@ -526,6 +485,6 @@ export default function Map({
           </div>
         )}
       </div>
-    </div>
+   
   );
 }
