@@ -1,11 +1,14 @@
 'use client'
 import React from "react"
-import  StatusBar from "./components/statusbar"
+import StatusBar from './components/statusbar'
 export default function Basic() {
-    return
+    return(
      <div>
             <div>
-                <StatusBar/>
+            <StatusBar />
             </div>
     </div>
+    )
     }
+
+    
